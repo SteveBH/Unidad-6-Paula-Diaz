@@ -1,0 +1,205 @@
+/* Estilos personalizados */
+
+/* Estilos de normalize.css */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos personalizados */
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+hr.divisor-header {
+  border: 0;
+  border-top: 1px solid #fff;
+  margin: 10px 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.main-ingresos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-personas {
+  flex-basis: 48%;
+}
+
+.main-personas h3 {
+  margin-top: 0;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="tel"],
+form select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form input[type="button"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.boton-paciente {
+  display: none;
+}
+
+.contenedor-datos {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.datos-pacientes,
+.datos-doctores {
+  white-space: pre-wrap;
+}
+
+.warning {
+  border-color: red !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    padding: 0 10px;
+  }
+
+  .main-ingresos {
+    flex-wrap: wrap;
+  }
+
+  .main-personas {
+    flex-basis: 100%;
+  }
+}
+
+/* Cambios de estilo */
+form input[type="button"] {
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  form input[type="button"] {
+    margin-top: 20px;
+  }
+}
+
+/* Estilos para la sección de datos */
+.contenedor-datos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.datos-pacientes,
+.datos-doctores {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.datos-pacientes table,
+.datos-doctores table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.datos-pacientes th,
+.datos-doctores th {
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  text-align: left;
+}
+
+.datos-pacientes td,
+.datos-doctores td {
+  padding: 8px;
+}
+
+.datos-pacientes td:first-child,
+.datos-doctores td:first-child {
+  font-weight: bold;
+  width: 150px;
+}
+
+.datos-pacientes td:not(:first-child),
+.datos-doctores td:not(:first-child) {
+  font-weight: normal;
+}
+
+.datos-pacientes button,
+.datos-doctores button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.datos-pacientes button:hover,
+.datos-doctores button:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
+  .datos-pacientes td,
+  .datos-doctores td {
+    font-size: 14px;
+    padding: 6px;
+  }
+}

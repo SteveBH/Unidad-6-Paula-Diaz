@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio</title>
+    <link rel="stylesheet" href="Style.css" />
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Laboratorio pacientes y Doctores</h1>
+    </header>
+    <hr class="divisor-header" />
+    <main id="main">
+      <h2>Diligenciar el formulario según su rol</h2>
+      <div class="main-ingresos" id="main-ingresos">
+        <div class="main-personas" id="main-personas">
+          <h3>Paciente</h3>
+          <form>
+            <!--Nombre-->
+            <label for="nombre">Nombre</label>
+
+            <input
+              class="nombre"
+              id="nombre"
+              type="text"
+              placeholder="Nombre"
+            />
+            <!-- Apellido -->
+            <label for="apellido">Apellido</label>
+            <input
+              class="apellido"
+              id="apellido"
+              type="text"
+              placeholder="Apellido"
+            />
+            <!-- Cedula -->
+            <label for="cedula">Cédula</label>
+            <input
+              type="text"
+              class="cedula"
+              id="cedula"
+              placeholder="Cedula"
+            />
+
+            <!-- Edad -->
+            <label for="edad">Fecha de Nacimiento</label>
+            <input type="date" id="edad" />
+            <!-- Telefono -->
+            <label for="tel">Telefono</label>
+            <input type="tel" name="tel" id="tel" placeholder="Telefono" />
+            <!-- Especialidad Requerida -->
+            <label for="especialidad">Especialidad Requerida</label>
+            <select name="lista" id="especialidad" class="epecialidad">
+              <option value="especialidad">Especialidad</option>
+              <option value="medicina-general">Medicina General</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="medicina-interna">Medicina Interna</option>
+              <option value="dermatologia">Dermatologia</option>
+              <option value="rehabilitacion-fisica">
+                Rehabilitacion Fisica
+              </option>
+              <option value="psicologia">Piscologia</option>
+              <option value="odontologia">Odontologia</option>
+              <option value="radiologia">Radiologia</option>
+            </select>
+            <input type="button" value="Enviar" id="boton-envio" />
+          </form>
+        </div>
+        <div class="main-personas">
+          <h3>Doctor</h3>
+          <form>
+            <!-- Nombre -->
+            <label for="nombre">Nombre</label>
+            <input
+              class="nombre"
+              id="nombre-doctor"
+              type="text"
+              placeholder="Nombre"
+            />
+            <!-- Apellido -->
+            <label for="apellido"> Apellido</label>
+            <input
+              class="apellido"
+              id="apellido-doctor"
+              type="text"
+              placeholder="Apellido"
+            />
+            <!-- Cedula -->
+            <label for="cedula">Cédula</label>
+            <input
+              type="text"
+              class="cedula"
+              id="cedula-doctor"
+              placeholder="Cedula"
+            />
+            <!-- Especialidad -->
+            <label for="especialidad">Especialidad</label>
+            <select name="lista" id="especialidad-doctor" class="epecialidad">
+              <option value="especialidad">Especialidad</option>
+              <option value="medicina-general">Medicina General</option>
+              <option value="cardiologia">Cardiologia</option>
+              <option value="medicina-interna">Medicina Interna</option>
+              <option value="dermatologia">Dermatología</option>
+              <option value="rehabilitacion-fisica">
+                Rehabilitacion Física
+              </option>
+              <option value="psicologia">Piscologia</option>
+              <option value="odontologia">Odontologia</option>
+              <option value="radiologia">Radiologia</option>
+            </select>
+            <!-- Consultorio -->
+            <label for="consultorio">Consultorio</label>
+            <input
+              type="text"
+              class="consultorio"
+              id="consultorio"
+              class="Consultorio"
+              placeholder="Consultorio"
+            />
+            <!-- Correo -->
+            <label for="email">Correo Electronico</label>
+
+            <input
+              type="email"
+              class="email"
+              id="email"
+              placeholder="Correo Electronico"
+            />
+            <input type="button" value="Enviar" id="boton-envio-doctor" />
+          </form>
+        </div>
+      </div>
+    </main>
+    <div class="contenedor-datos">
+      <div class="datos-pacientes" id="datos-pacientes"></div>
+      <div class="datos-doctores" id="datos-doctores"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+      const formularioPaciente = document.querySelector("#main-personas form");
+      const formularioDoctor = document.querySelector("#main-personas ~ div form");
+      const datosPacientes = document.querySelector("#datos-pacientes");
+      const datosDoctores = document.querySelector("#datos-doctores");
+
+      formularioPaciente.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nombre = document.querySelector("#nombre").value;
+        const apellido = document.querySelector("#apellido").value;
+        const cedula = document.querySelector("#cedula").value;
+        const edad = document.querySelector("#edad").value;
+        const telefono = document.querySelector("#tel").value;
+        const especialidad = document.querySelector("#especialidad").value;
+
+        const paciente = {
+          Nombre: nombre,
+          Apellido: apellido,
+          Cédula: cedula,
+          "Fecha de Nacimiento": edad,
+          Teléfono: telefono,
+          "Especialidad Requerida": especialidad,
+        };
+
+        const fila = document.createElement("tr");
+        for (const propiedad in paciente) {
+          const celda = document.createElement("td");
+          celda.textContent = paciente[propiedad];
+          fila.appendChild(celda);
+        }
+
+        datosPacientes.appendChild(fila);
+        formularioPaciente.reset();
+      });
+
+      formularioDoctor.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nombre = document.querySelector("#nombre-doctor").value;
+        const apellido = document.querySelector("#apellido-doctor").value;
+        const cedula = document.querySelector("#cedula-doctor").value;
+        const especialidad = document.querySelector("#especialidad-doctor").value;
+        const consultorio = document.querySelector("#consultorio").value;
+        const correo = document.querySelector("#email").value;
+
+        const doctor = {
+          Nombre: nombre,
+          Apellido: apellido,
+          Cédula: cedula,
+          Especialidad: especialidad,
+          Consultorio: consultorio,
+          "Correo Electrónico": correo,
+        };
+
+        const fila = document.createElement("tr");
+        for (const propiedad in doctor) {
+          const celda = document.createElement("td");
+          celda.textContent = doctor[propiedad];
+          fila.appendChild(celda);
+        }
+
+        datosDoctores.appendChild(fila);
+        formularioDoctor.reset();
+      });
+    </script>
+  </body>
+</html>
